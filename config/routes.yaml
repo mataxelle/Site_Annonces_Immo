@@ -1,5 +1,17 @@
 # Configuration des routes
 
-homepage:
+home:
   path: /
   controller: App\Controller\SiteAnnoncesImmoController::index
+
+propertie_add:
+  path: site_annonces_immo/add
+  controller: App\Controller\SiteAnnoncesImmoController::add
+
+propertie_show:
+  path: site_annonces_immo/show/{url}
+  controller: App\Controller\SiteAnnoncesImmoController::show
+
+propertie_edit:
+  path: site_annonces_immo/edit
+  controller: App\Controller\SiteAnnoncesImmoController::edit

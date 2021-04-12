@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ slug }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<h1 class="center">Page d'un bien {{ slug }}</h1>
+			</div>
+		</div>
+	</div>
+
+	<a href="site_annonces_immo/edit">Modifier le bien</a>
+	<button>Supprimer le bien</button>
+{% endblock %}
