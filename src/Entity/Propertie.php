@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PropertieRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert; // Asset\NotBlank permet de dire que le champ ne doit pas être null
 
 /**
  * @ORM\Entity(repositoryClass=PropertieRepository::class)
@@ -19,16 +20,19 @@ class Propertie
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide.")
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide.")
      * @ORM\Column(type="integer")
      */
     private $price;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide.")
      * @ORM\Column(type="text")
      */
     private $description;

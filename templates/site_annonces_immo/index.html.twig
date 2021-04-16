@@ -10,6 +10,14 @@
 				<h1 class="center">Hello, c'est la page d'accueil</h1>
 			</div>
 		</div>
+
+		{% for propertie in properties %}
+            <article>
+			    <h2>{{ propertie.title }}</h2>
+				<img/>
+				<p>{{ propertie.description }}</p>
+			</article>
+		{% endfor %}
 	</div>
 	<a href="{{ path('propertie_add') }}">Ajouter un bien</a><br>
 	<a href="{{ path('propertie_edit') }}">Modifier le bien</a>

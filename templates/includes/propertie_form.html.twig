@@ -1,16 +1,34 @@
-<div class="row">
-	<form>
-		<div class="input-field col s12 m8 l8 offset-l2">
-			<input type="text" id="title" placeholder="Titre">
-			</div>
-			<div class="input-field col s12 m8 l8 offset-l2">
-				<textarea class="materialize-textarea" placeholder="Description"></textarea>
-			</div>
-			<div class="input-field col s12 m8 l8 offset-l2">
-				<input type="file">
-			</div>
-			<div class="input-field col s12 m8 l8 offset-l2">
-				<input type="submit" value="Modifier" class="btn btn-primary btn-large">
-			</div>
-	</form>
-</div>
+{# form_start génère la balise <form> de html avec tout les attributs name, action et enctype pour les images, form_end ferme le formulaire#}
+
+{{ form_start(form, {'attr': {'class': 'row'}}) }}
+    <div class="input-field col s12 m8 l8 offset-l2">
+	    {{ form_label(form.title, 'Titre') }}
+	    {{ form_widget(form.title) }}
+		<span class="error">{{ form_errors(form.title) }}</span>
+	</div>
+
+	<div class="input-field col s12 m8 l8 offset-l2">
+	    {{ form_label(form.price, 'Prix') }}
+	    {{ form_widget(form.price) }}
+		<span class="error">{{ form_errors(form.price) }}</span>
+	</div>
+
+	<div class="input-field col s12 m8 l8 offset-l2">
+	    {{ form_label(form.description, 'Description du bien') }}
+	    {{ form_widget(form.description, {'attr': {'class': 'materialize-textarea'}}) }}
+		<span class="error">{{ form_errors(form.description) }}</span>
+	</div>
+
+	<div class="input-field col s12 m8 l8 offset-l2">
+	    {{ form_widget(form.image) }}
+	</div>
+
+	<div class="input-field col s12 m8 l8 offset-l2">
+	    {{ form_label(form.author, 'Auteur') }}
+	    {{ form_widget(form.author) }}
+	</div>
+
+	<div class="input-field col s12 m8 l8 offset-l2">
+	    <input type="submit" name="" value="Publier" class="btn btn-primary btn-large">
+	</div>
+{{ form_end(form) }}
