@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PropertieRepository::class)
+ * @ORM\Table(name="properties")
  */
 class Propertie
 {
@@ -36,6 +37,11 @@ class Propertie
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $author;
 
     /**
      * @ORM\Column(type="datetime")
@@ -96,6 +102,18 @@ class Propertie
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

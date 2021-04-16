@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Propertie;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -9,6 +10,11 @@ class SiteAnnoncesImmoController extends AbstractController
 {
     public function index(): Response
     {
+
+        $propertie = new Propertie; // création nouvel objet
+
+        dump($propertie);
+
         //Renvoi de la vue grace à la méthode render()
         return $this->render('site_annonces_immo/index.html.twig');
     }
