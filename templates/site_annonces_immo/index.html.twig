@@ -11,15 +11,19 @@
 			</div>
 		</div>
 
+	    <a href="{{ path('propertie_add') }}">Ajouter un bien</a><br>
+	    <a href="{{ path('propertie_edit') }}">Modifier le bien</a>
+
 		{% for propertie in properties %}
-            <article>
-			    <h2>{{ propertie.title }}</h2>
-				<img/>
-				<p>{{ propertie.description }}</p>
-			</article>
+            <div class="row">
+			    <article class="col s10 m5 l6">
+			        <h4>{{ propertie.title }}</h4>
+				    <img width="100%" src="{{ asset('uploads/' ~ propertie.image) }}"/>
+				    <p>{{ propertie.price }}</p>
+				    <p>{{ propertie.description }}</p>
+			    </article>
+			</div>	
 		{% endfor %}
 	</div>
-	<a href="{{ path('propertie_add') }}">Ajouter un bien</a><br>
-	<a href="{{ path('propertie_edit') }}">Modifier le bien</a>
 
 {% endblock %}

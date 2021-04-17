@@ -19,7 +19,7 @@ class PropertieType extends AbstractType
             ->add('title', TextType::class, ['required' => false])
             ->add('price', NumberType::class, ['required' => false])
             ->add('description', TextareaType::class, ['required' => false])
-            ->add('image', FileType::class,['required' => false])
+            ->add('image', FileType::class, ['data_class' => null, 'required' => false])
             ->add('author', TextType::class, ['required' => false])
             //->add('createdAt')  Pas besoin car ils sont générés automatiquement
             //->add('updatedAt')
