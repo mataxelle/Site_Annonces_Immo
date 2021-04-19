@@ -12,12 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SiteAnnoncesImmoController extends AbstractController
 {
-    public function index(PropertieRepository $repo): Response
+    public function index(PropertieRepository $propertieRepo): Response
     {
-
         //Renvoi de la vue grace à la méthode render()
         return $this->render('site_annonces_immo/index.html.twig', [
-            'properties' => $repo->findAll()
+            'properties' => $propertieRepo->findAll()
         ]);
     }
 
@@ -66,10 +65,10 @@ class SiteAnnoncesImmoController extends AbstractController
         ]);
     }
 
-    public function show($url): Response
+    public function show(Propertie $propertie): Response
     {
         return $this->render('site_annonces_immo/propertie_show.html.twig', [
-            'slug' => $url
+            'propertie' => $propertie
         ]);
     }
 
