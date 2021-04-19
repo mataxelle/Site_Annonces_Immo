@@ -73,14 +73,51 @@ class SiteAnnoncesImmoController extends AbstractController
         ]);
     }
 
-    public function edit(): Response
+    public function edit(Propertie $propertie, Request $request): Response
     {
-        $propertie = new Propertie();
+        //$propertie = $this->getDoctrine()->getRepository(Propertie::class)->find($id);
+
+        $oldImage = $propertie->getImage();
 
         $form = $this->createForm(PropertieType::class, $propertie);
 
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $propertie->setUpdatedAt(new \DateTime());
+
+            if ($propertie->getImage() !== null && $propertie->getImage() !== $oldImage) {
+                $file = $form->get('image')->getData();
+                $fileName =  uniqid(). '.' .$file->guessExtension();
+
+                try {
+                    $file->move(
+                        $this->getParameter('images_directory'),
+                        $fileName
+                    );
+                } catch (FileException $e) {
+                    return new Response($e->getMessage());
+                }
+
+                $propertie->setImage($fileName);
+            } else {
+                $propertie->setImage($oldImage);
+            }
+
+            if (!$propertie->getCreatedAt()) {
+                $propertie->setCreatedAt(new \DateTime());
+            }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($propertie);
+            $em->flush();
+
+            return $this->redirectToRoute('home');
+        }
+
         return $this->render('site_annonces_immo/propertie_edit.html.twig', [
-            'form' => $form->createView()
+            'propertie' => $propertie,
+            'form' =>$form->createView()
         ]);
     }
 

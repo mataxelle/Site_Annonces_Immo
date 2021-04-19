@@ -7,12 +7,13 @@
     <div class="container">
 		<div class="row">
 			<div class="col s12 m12 l12">
-				<h1 class="center">Hello, c'est la page d'accueil</h1>
+				<h1 class="center">Dernières annonces publiés</h1>
 			</div>
 		</div>
 
-	    <a href="{{ path('propertie_add') }}">Ajouter un bien</a><br>
-	    <a href="{{ path('propertie_edit') }}">Modifier le bien</a>
+	    <div class="row">
+		    <a href="{{ path('propertie_add') }}">Ajouter un bien</a><br>
+		</div>
 
 		{% for propertie in properties %}
             <div class="row">

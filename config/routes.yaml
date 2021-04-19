@@ -13,5 +13,7 @@ propertie_show:
   controller: App\Controller\SiteAnnoncesImmoController::show
 
 propertie_edit:
-  path: site_annonces_immo/edit
+  path: site_annonces_immo/edit/{id}
   controller: App\Controller\SiteAnnoncesImmoController::edit
+  requirements:
+    id: '\d+'
