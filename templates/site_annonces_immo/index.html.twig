@@ -21,14 +21,19 @@
 			        <div class="card blue-grey darken-1">
 					    <div class="card-content white-text">
 						    <span class="card-title">{{ propertie.title }}</span>
-				            <img width="100%" src="{{ asset('uploads/' ~ propertie.image) }}"/>
-				            <p>Prix : {{ propertie.price }}€</p>
+							<p>{{ propertie.updatedAt|date('d/m/Y') }}</p>
+							<div class="card-image">
+				                <img width="100%" height="100%" src="{{ asset('uploads/' ~ propertie.image) }}" alt="{{ propertie.title }}"/>
+							</div>
+				            <p>Prix :{{ propertie.price }}€</p>
 						</div>
 						<div class="card-action">
 						    <a href="{{ path('propertie_show', {'id' : propertie.id}) }}">Plus de détails
 						</div>
 					</div>
-			    </div>	
+			    </div>
+			{% else %}
+			    <P>Désolé, rien de disponible !</p>	
 		    {% endfor %}
 		</div>	
 	</div>

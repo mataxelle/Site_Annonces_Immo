@@ -17,3 +17,9 @@ propertie_edit:
   controller: App\Controller\SiteAnnoncesImmoController::edit
   requirements:
     id: '\d+'
+
+propertie_delete:
+  path: site_annonces_immo/delete/{id}
+  controller: App\Controller\SiteAnnoncesImmoController::delete
+  requirements:
+    id: '\d+'

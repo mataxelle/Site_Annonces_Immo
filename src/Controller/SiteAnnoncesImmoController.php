@@ -18,6 +18,12 @@ class SiteAnnoncesImmoController extends AbstractController
         return $this->render('site_annonces_immo/index.html.twig', [
             'properties' => $propertieRepo->findAll()
         ]);
+
+        /*$properties = $propertieRepo->findBy(
+            ['updatedAt' => 'DESC']
+        );
+
+        return $this->render('site_annonces_immo/index.html.twig', ['properties' => $properties]);*/
     }
 
     public function add(Request $request): Response
@@ -57,7 +63,7 @@ class SiteAnnoncesImmoController extends AbstractController
             $em->persist($propertie); // On confie notre entité à l'entity manager (on persist l'entité)
             $em->flush(); // On execute la requete
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('propertie_show', ['id' => $propertie->getId()]);
         }
 
         return $this->render('site_annonces_immo/propertie_add.html.twig',[

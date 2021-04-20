@@ -7,15 +7,18 @@
 		<div class="row">
 			<div class="col s12 m12 l8 offset-l2">
 			    <div class="card">
-                    <div class="card-content">
-					    <h2 class="card-title #00bcd4 cyan-text">{{ propertie.title }}</h2>
-				        <img src="{{ asset('uploads/' ~ propertie.image) }}" alt="Dessin d'une maison" class="responsive-img" />
+				    <h2 class="card-title #00bcd4 cyan-text">{{ propertie.title }}</h2>
+					<p>{{ propertie.updatedAt|date('d/m/Y') }}</p>
+					<div class="card-image">
+				        <img src="{{ asset('uploads/' ~ propertie.image) }}" alt="{{ propertie.title }}" class="responsive-img" />
+					</div>
+					<div class="card-content">
 						<p>Description :</p><br>
 						<p>{{ propertie.description }}</p>
-						<div class="card-action">
+					</div>	
+					<div class="card-action">
 						    <a class="btn" href="{{ path('propertie_edit', {'id' : propertie.id}) }}">Modifier</a>
 	                        <a class="btn">Supprimer</a>
-						</div>
 					</div>	
 				</div>
 			</div>
