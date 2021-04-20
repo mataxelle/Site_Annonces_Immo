@@ -7,3 +7,7 @@ php bin/console server:run
 
 
 . Ajout de propriété ok
+
+. Modification de propriété ok
+
+. Inscription utilisateur ok
