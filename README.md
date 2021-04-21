@@ -11,3 +11,7 @@ php bin/console server:run
 . Modification de propriété ok
 
 . Inscription utilisateur ok
+
+. Connexion utilisateur ok
+
+. Déconnexion utilisateur ok
