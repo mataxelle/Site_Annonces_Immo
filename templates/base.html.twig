@@ -8,6 +8,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
             <link rel="stylesheet" href="{{ asset('./assets/css/app.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('./assets/css/form.css') }}">
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
 
@@ -21,12 +22,19 @@
         <nav>
 	        <div class="nav-wrapper #00bcd4 cyan">
 	    	    <div class="container">
-	    		    <a href="#" class="brand-logo">SiteAnnoncesImmo</a>
+	    		    <a href="{{ path('home') }}" class="brand-logo">SiteAnnoncesImmo</a>
 			      	<ul id="nav-mobile" class="right hide-on-med-and-down">
 			            <li><a href="{{ path('home') }}">Accueil</a></li>
-			            <li><a href="#">Connexion</a></li>
-                        <li><a href="#">Mon compte</a></li>
-                        <li><a href="#">Déconnexion</a></li>
+                        {% if app.user %}
+						    <li><a href="">Mon compte</a></li>
+					    {% else %}
+						    <li><a href="/login">Mon compte</a></li>
+			            {% endif %}
+                        {% if app.user %}
+						    <li><a href="/logout">Déconnexion</a></li>
+					    {% else %}
+						    <li><a href="/login">Connexion</a></li>
+			            {% endif %}
 		      	    </ul>
 	    	    </div>
 	        </div>

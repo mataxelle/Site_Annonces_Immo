@@ -1,3 +1,6 @@
+h1.form_title {
+    margin-bottom: 80px;
+}
 .input-field span.error {
     color: red;
 }
