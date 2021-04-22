@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app.user.firstname }} {{ app.user.lastname }}{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="center">Mon compte</h1>
+
+    <div class="row">
+        <div class="col s12 m12 l8 offset-l2">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{asset('/assets/images/avatar-user1.png')}}">
+                    <span class="card-title">{{ app.user.firstname }} {{ app.user.lastname }}</span>
+                </div>
+                <div class="card-content">
+                <p>Email : {{ app.user.email }}</p>
+                <p>Téléphone : {{ app.user.phoneNumber }}</p>
+                {#<p>Date d'inscription : {{ app.user.inscription_date|date('d/m/Y') }}</p>#}
+                <div class="card-action user-card-action">
+                    <a href="">Modifier</a>
+                    <a href="">Supprimer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

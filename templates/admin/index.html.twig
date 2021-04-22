@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page admin{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Admin</h1>
+
+    <div class="row">
+        <div class="col">
+            <h5>Annonces</h5>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Titre</th>
+                    <th>Prix</th>
+                    <th>Propriétaire</th>
+                    <th>Contact</th>
+                    <th>Date de publication</th>
+                    <th>Date de modification</th>
+                    <th>Actions</th>
+                </tr>
+                {% set i = 1 %}
+                {% for propertie in properties %}
+                    <tr>
+                        <td>{{ i }}</td>
+                        <td><a href="{{ path('propertie_show', {'id': propertie.id}) }}" target="_blank">{{ propertie.title }}</a></td>
+                        <td>{{ propertie.price }}</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>{{ propertie.createdAt ? propertie.createdAt|date('d/m/Y') : '-' }}</td>
+                        <td>{{ propertie.updatedAt|date('d/m/Y') }}</td>
+                        <td>
+                            <a href="{{ path('propertie_edit', {'id': propertie.id}) }}"><i class="material-icons blue-text">edit</i></a>
+                            {#<a href="{{ path('propertie_remove', {'id': propertie.id}) }}"><i class="material-icons red-text">delete</i></a>#}
+                        </td>
+                    </tr>
+                {% set i = i+1 %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div></div>
+</div>
+{% endblock %}

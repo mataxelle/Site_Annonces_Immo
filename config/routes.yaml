@@ -23,3 +23,25 @@ propertie_delete:
   controller: App\Controller\SiteAnnoncesImmoController::delete
   requirements:
     id: '\d+'
+
+account:
+  path: /account/{id}
+  controller: App\Controller\UserController::index
+  requirements:
+    id: '\d+'
+
+account_edit:
+  path: user/account_edit/{id}
+  controller: App\Controller\UserController::edit
+  requirements:
+    id: '\d+'
+
+account_remove:
+  path: user/account_remove/{id}
+  controller: App\Controller\UserController::remove
+  requirements:
+    id: '\d+'
+    
+admin:
+  path: /admin
+  controller: App\Controller\AdminController::admin 

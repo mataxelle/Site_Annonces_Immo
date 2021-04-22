@@ -15,15 +15,16 @@ class SiteAnnoncesImmoController extends AbstractController
     public function index(PropertieRepository $propertieRepo): Response
     {
         //Renvoi de la vue grace à la méthode render()
-        return $this->render('site_annonces_immo/index.html.twig', [
+        /*return $this->render('site_annonces_immo/index.html.twig', [
             'properties' => $propertieRepo->findAll()
-        ]);
+        ]);*/
 
-        /*$properties = $propertieRepo->findBy(
+        $properties = $propertieRepo->findBy(
+            [],
             ['updatedAt' => 'DESC']
         );
 
-        return $this->render('site_annonces_immo/index.html.twig', ['properties' => $properties]);*/
+        return $this->render('site_annonces_immo/index.html.twig', ['properties' => $properties]);
     }
 
     public function add(Request $request): Response
