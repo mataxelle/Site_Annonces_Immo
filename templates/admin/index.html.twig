@@ -7,7 +7,7 @@
     <h1>Admin</h1>
 
     <div class="row">
-        <div class="col">
+        <div class="col s12">
             <h5>Annonces</h5>
             <table>
                 <tr>
@@ -22,7 +22,7 @@
                 </tr>
                 {% set i = 1 %}
                 {% for propertie in properties %}
-                    <tr>
+                    <tr class="hoverable">
                         <td>{{ i }}</td>
                         <td><a href="{{ path('propertie_show', {'id': propertie.id}) }}" target="_blank">{{ propertie.title }}</a></td>
                         <td>{{ propertie.price }}</td>
@@ -32,7 +32,7 @@
                         <td>{{ propertie.updatedAt|date('d/m/Y') }}</td>
                         <td>
                             <a href="{{ path('propertie_edit', {'id': propertie.id}) }}"><i class="material-icons blue-text">edit</i></a>
-                            {#<a href="{{ path('propertie_remove', {'id': propertie.id}) }}"><i class="material-icons red-text">delete</i></a>#}
+                            <a href=""><i class="material-icons red-text">delete</i></a>
                         </td>
                     </tr>
                 {% set i = i+1 %}
@@ -40,6 +40,42 @@
             </table>
         </div>
     </div>
-    <div></div>
+    <div class="row">
+        <div class="col s12">
+            <h5>Utilisateurs</h5>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Roles</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Inscrit depuis</th>
+                    <th>Actions</th>
+                </tr>
+                {% set i = 1 %}
+                {% for user in users %}
+                    <tr class="hoverable">
+                        <td>{{ i }}</td>
+                        <td><a href="{{ path('account', {'id': user.id}) }}" target="_blank">{{ user.lastname }}</a></td>
+                        <td>{{ user.firstname }}</td>
+                        <td>
+                            <span class="badge blue">admin</span>
+                        </td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.phoneNumber }}</td>
+                        <td>{#{ user.inscription_date|date('d/m/Y') }#}</td>
+                        <td>
+                        N/A
+                            <a href=""><i class="material-icons blue-text">edit</i></a>
+                            <a href=""><i class="material-icons red-text">delete</i></a>
+                        </td>
+                    </tr>
+                {% set i = i+1 %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 </div>
 {% endblock %}

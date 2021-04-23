@@ -84,6 +84,16 @@ class User implements UserInterface
         return (string) $this->email;
     }
 
+    // cette fonction rajouté va prendre en paramètre un rôle et l'ajouter au tableau rôle de l'utilisateur
+    public function addRoles(string $roles): self
+    {
+        if (!in_array($roles, $this->roles)) {
+            $this->roles[] = $roles;
+        }
+
+        return $this;
+    }
+
     /**
      * @see UserInterface
      */

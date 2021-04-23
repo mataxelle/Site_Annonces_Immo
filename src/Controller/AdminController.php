@@ -19,8 +19,14 @@ class AdminController extends AbstractController
             ['updatedAt' => 'DESC']
         );
 
+        $users = $this->getDoctrine()->getRepository(User::class)->findBy(
+            [],
+            ['inscription_date' => 'DESC']
+        );
+
         return $this->render('admin/index.html.twig', [
-            'properties' => $properties
+            'properties' => $properties,
+            'users' => $users
         ]);
     }
 }
