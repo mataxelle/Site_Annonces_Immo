@@ -37,6 +37,7 @@ class SiteAnnoncesImmoController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $propertie->setUsers($this->getUser());
 
             $propertie->setUpdatedAt(new \DateTime());
 

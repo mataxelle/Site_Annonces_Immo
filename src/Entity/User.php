@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -57,6 +59,16 @@ class User implements UserInterface
      */
     private $inscription_date;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Propertie", mappedBy="users")
+     */
+    private $properties;
+
+    public function __construct()
+    {
+        $this->properties = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -82,16 +94,6 @@ class User implements UserInterface
     public function getUsername(): string
     {
         return (string) $this->email;
-    }
-
-    // cette fonction rajouté va prendre en paramètre un rôle et l'ajouter au tableau rôle de l'utilisateur
-    public function addRoles(string $roles): self
-    {
-        if (!in_array($roles, $this->roles)) {
-            $this->roles[] = $roles;
-        }
-
-        return $this;
     }
 
     /**
@@ -192,6 +194,36 @@ class User implements UserInterface
     public function setInscriptionDate(\DateTimeInterface $inscription_date): self
     {
         $this->inscription_date = $inscription_date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Propertie[]
+     */
+    public function getProperties(): Collection
+    {
+        return $this->properties;
+    }
+
+    public function addProperty(Propertie $property): self
+    {
+        if (!$this->properties->contains($property)) {
+            $this->properties[] = $property;
+            $property->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProperty(Propertie $property): self
+    {
+        if ($this->properties->removeElement($property)) {
+            // set the owning side to null (unless already changed)
+            if ($property->getUsers() === $this) {
+                $property->setUsers(null);
+            }
+        }
 
         return $this;
     }

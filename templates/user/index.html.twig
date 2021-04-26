@@ -25,5 +25,34 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col s12 m12 l8 offset-l2">
+            <h3>Mes annonces</h3>
+            <div>
+                {% if app.user.properties is not null %}
+                    {% for propertie in app.user.properties %}
+                        <div class="col s10 m6 l4">
+			                <div class="card hoverable blue-grey darken-1">
+					            <div class="card-content white-text">
+						            <span class="card-title">{{ propertie.title }}</span>
+							        <p>{{ propertie.updatedAt|date('d/m/Y') }}</p>
+							        <div class="card-image">
+				                        <img class="responsive-img home" width="100%" src="{{ asset('uploads/' ~ propertie.image) }}" alt="{{ propertie.title }}"/>
+							        </div>
+				                    <p>Prix :{{ propertie.price }}€</p>
+						        </div>
+						        <div class="card-action">
+						            <a href="{{ path('propertie_show', {'id' : propertie.id}) }}">Plus de détails
+						        </div>
+					        </div>
+			            </div>
+                    {% endfor %}
+                {% else %}
+                vous n'avez pas d'annonces
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -60,9 +60,15 @@
                         <td>{{ i }}</td>
                         <td><a href="{{ path('account', {'id': user.id}) }}" target="_blank">{{ user.lastname }}</a></td>
                         <td>{{ user.firstname }}</td>
-                        <td>
-                            <span class="badge blue">admin</span>
-                        </td>
+                        {% if 'ROLE_ADMIN' in user.roles %}
+                            <td>
+                                <span class="badge blue">admin</span>
+                            </td>
+                            {% else %}
+                            <td>
+                                <span class="badge red"> no admin</span>
+                            </td>
+                        {% endif %}
                         <td>{{ user.email }}</td>
                         <td>{{ user.phoneNumber }}</td>
                         <td>{#{ user.inscription_date|date('d/m/Y') }#}</td>

@@ -6,3 +6,8 @@ article {
     display: flex;
     justify-content: space-around;
 }
+
+img.home {
+    height: 200px;
+    overflow: hidden;
+}
