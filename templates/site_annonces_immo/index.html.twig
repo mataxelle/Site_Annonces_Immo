@@ -12,7 +12,11 @@
 		</div>
 		
 	    <div class="row">
-		    <a href="{{ path('propertie_add') }}">Ajouter un bien</a><br>
+		    {% if app.user is not null %}
+			    <a href="{{ path('propertie_add') }}">Ajouter un bien</a><br>
+			{% else %}
+			    <a href="/login">Ajouter un bien</a><br>	
+			{% endif %}
 		</div>
 
         <div class="row">

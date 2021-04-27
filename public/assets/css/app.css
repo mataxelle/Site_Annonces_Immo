@@ -11,3 +11,7 @@ img.home {
     height: 200px;
     overflow: hidden;
 }
+
+.bold {
+    font-weight: bold;
+}

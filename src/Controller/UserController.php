@@ -29,6 +29,9 @@ class UserController extends AbstractController
 
     public function edit(User $user): Response
     {
+
+        //$user->$this->getUser();
+
         return $this->render('user/index.html.twig', [
             'user' => $user,
         ]);

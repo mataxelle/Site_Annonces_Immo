@@ -7,19 +7,23 @@
 		<div class="row">
 			<div class="col s12 m12 l8 offset-l2">
 			    <div class="card">
-				    <h2 class="card-title #00bcd4 cyan-text">{{ propertie.title }}</h2>
-					<p>{{ propertie.updatedAt|date('d/m/Y') }}</p>
+				    <h2 class="card-title #00bcd4 cyan-text bold">{{ propertie.title }}</h2>
+					<p>Publié le {{ propertie.updatedAt|date('d/m/Y') }}</p>
 					<div class="card-image">
 				        <img src="{{ asset('uploads/' ~ propertie.image) }}" alt="{{ propertie.title }}" class="responsive-img" />
 					</div>
 					<div class="card-content">
-						<p>Description :</p><br>
+					    <p class="bold">Prix :</p><br>
+						<p>{{ propertie.price }}€</p><br>
+						<p class="bold">Description :</p><br>
 						<p>{{ propertie.description }}</p>
-					</div>	
+					</div>
+					{% if propertie in app.user.properties %}	{# pareil à {% if is_granted("ROLE_USER") %} #}
 					<div class="card-action propertie-card-action">
 						    <a class="btn" href="{{ path('propertie_edit', {'id' : propertie.id}) }}">Modifier</a>
 	                        <a class="btn">Supprimer</a>
-					</div>	
+					</div>
+					{% endif %}	
 				</div>
 			</div>
 		</div>	

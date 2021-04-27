@@ -28,7 +28,7 @@
 
     <div class="row">
         <div class="col s12 m12 l8 offset-l2">
-            <h3>Mes annonces</h3>
+            <h3>Mes annonces ({{ app.user.properties|length }})</h3>
             <div>
                 {% if app.user.properties is not null %}
                     {% for propertie in app.user.properties %}
