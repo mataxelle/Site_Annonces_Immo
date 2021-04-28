@@ -29,6 +29,8 @@ class SiteAnnoncesImmoController extends AbstractController
 
     public function add(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $propertie = new Propertie(); // création objet de type Propertie
 
         /* création du formulaire par la méthode createForm() de la class AbstractController,
@@ -84,6 +86,8 @@ class SiteAnnoncesImmoController extends AbstractController
     {
         //$propertie = $this->getDoctrine()->getRepository(Propertie::class)->find($id);
 
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         $oldImage = $propertie->getImage();
 
         $form = $this->createForm(PropertieType::class, $propertie);
@@ -130,6 +134,8 @@ class SiteAnnoncesImmoController extends AbstractController
 
     public function remove(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('site_annonces_immo/propertie_add.html.twig');
     }
 }

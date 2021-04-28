@@ -4,11 +4,12 @@
 
 {% block body %}
 	<div class="container">
+
 		<div class="row">
 			<div class="col s12 m12 l8 offset-l2">
 			    <div class="card">
 				    <h2 class="card-title #00bcd4 cyan-text bold">{{ propertie.title }}</h2>
-					<p>Publié le {{ propertie.updatedAt|date('d/m/Y') }}</p>
+					<p>Publié le{{ propertie.updatedAt|date('d/m/Y') }}</p>
 					<div class="card-image">
 				        <img src="{{ asset('uploads/' ~ propertie.image) }}" alt="{{ propertie.title }}" class="responsive-img" />
 					</div>
@@ -16,16 +17,27 @@
 					    <p class="bold">Prix :</p><br>
 						<p>{{ propertie.price }}€</p><br>
 						<p class="bold">Description :</p><br>
-						<p>{{ propertie.description }}</p>
+						<p>{{ propertie.description }}</p><br>
+						<p class="bold">Auteur :</p><br>
+						<p>{{ propertie.author }}</p><br>
 					</div>
-					{% if propertie in app.user.properties %}	{# pareil à {% if is_granted("ROLE_USER") %} #}
+
+					{% if is_granted('ROLE_USER') %}
+					{% if propertie in app.user.properties %}	{# {% if propertie in app.user.properties ne fonctionne plus %} #}
 					<div class="card-action propertie-card-action">
 						    <a class="btn" href="{{ path('propertie_edit', {'id' : propertie.id}) }}">Modifier</a>
 	                        <a class="btn">Supprimer</a>
 					</div>
-					{% endif %}	
+					{% endif %}
+					{% endif %}
 				</div>
 			</div>
 		</div>	
+
+		<div class="row">
+		    <div class="col s12 center">
+			    <a href="/login"> Veuillez vous connecter pour voir le contact de cette annonce</a>
+			</div>
+		</div>
 	</div>
 {% endblock %}

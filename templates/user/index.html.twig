@@ -19,7 +19,7 @@
                 <p>Téléphone : {{ app.user.phoneNumber }}</p>
                 {#<p>Date d'inscription : {{ app.user.inscription_date|date('d/m/Y') }}</p>#}
                 <div class="card-action user-card-action">
-                    <a href="">Modifier</a>
+                    <a href="{{ path('account_edit', {'id' : app.user.id}) }}">Modifier</a>
                     <a href="">Supprimer</a>
                 </div>
             </div>
