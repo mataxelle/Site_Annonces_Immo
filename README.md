@@ -16,4 +16,6 @@ php bin/console server:run
 
 . Déconnexion utilisateur ok
 
+. Modification de profil ok
+
 . Page Admin en cours
