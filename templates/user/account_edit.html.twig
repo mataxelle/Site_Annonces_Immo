@@ -14,35 +14,30 @@
 
         <h1 class="form_title center">Modification de compte</h1>
         
-        {{ form_start(registrationForm, {'attr': {'class': 'row'}}) }}
+        {{ form_start(editAccountForm, {'attr': {'class': 'row'}}) }}
             <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-                {{ form_label(registrationForm.firstname, 'Prénom') }}
-                {{ form_widget(registrationForm.firstname) }}
-                <span class="error">{{ form_errors(registrationForm.firstname) }}</span>
+                {{ form_label(editAccountForm.firstname, 'Prénom') }}
+                {{ form_widget(editAccountForm.firstname) }}
+                <span class="error">{{ form_errors(editAccountForm.firstname) }}</span>
             </div>
             <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-                {{ form_label(registrationForm.lastname, 'Nom') }}
-                {{ form_widget(registrationForm.lastname) }}
-                <span class="error">{{ form_errors(registrationForm.lastname) }}</span>
+                {{ form_label(editAccountForm.lastname, 'Nom') }}
+                {{ form_widget(editAccountForm.lastname) }}
+                <span class="error">{{ form_errors(editAccountForm.lastname) }}</span>
             </div>
             <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-                {{ form_label(registrationForm.email, 'Email') }}
-                {{ form_widget(registrationForm.email) }}
-                <span class="error">{{ form_errors(registrationForm.email) }}</span>
+                {{ form_label(editAccountForm.email, 'Email') }}
+                {{ form_widget(editAccountForm.email) }}
+                <span class="error">{{ form_errors(editAccountForm.email) }}</span>
             </div>
             <div class="input-field col m6 l6 offset-m3 offset-l3">
-                {{ form_label(registrationForm.phoneNumber, 'Téléphone') }}
-                {{ form_widget(registrationForm.phoneNumber) }}
-                <span class="error">{{ form_errors(registrationForm.phoneNumber) }}</span>
+                {{ form_label(editAccountForm.phoneNumber, 'Téléphone') }}
+                {{ form_widget(editAccountForm.phoneNumber) }}
+                <span class="error">{{ form_errors(editAccountForm.phoneNumber) }}</span>
             </div>
             <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-                {{ form_label(registrationForm.plainPassword, 'Mot de passe') }}
-                {{ form_widget(registrationForm.plainPassword) }}
-                <span class="error">{{ form_errors(registrationForm.plainPassword) }}</span>
-            </div>
-            <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-                <button type="submit" class="btn">Modifkkkkkkkkkkkier</button>
+                <button type="submit" class="btn">Modifier</button>
             </div>    
-        {{ form_end(registrationForm) }}
+        {{ form_end(editAccountForm) }}
     </div>
 {% endblock %}

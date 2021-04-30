@@ -15,9 +15,12 @@
                     <span class="card-title">{{ app.user.firstname }} {{ app.user.lastname }}</span>
                 </div>
                 <div class="card-content">
-                <p>Email : {{ app.user.email }}</p>
-                <p>Téléphone : {{ app.user.phoneNumber }}</p>
-                {#<p>Date d'inscription : {{ app.user.inscription_date|date('d/m/Y') }}</p>#}
+                <p class="bold">Email :</p><br>
+                <p>{{ app.user.email }}</p><br>
+                <p class="bold">Téléphone :</p><br>
+                <p>{{ app.user.phoneNumber }}</p><br>
+                <p class="bold">Date d'inscription :</p><br>
+                <p>{{ app.user.inscriptionDate|date('d/m/Y') }}</p>
                 <div class="card-action user-card-action">
                     <a href="{{ path('account_edit', {'id' : app.user.id}) }}">Modifier</a>
                     <a href="">Supprimer</a>
@@ -28,11 +31,17 @@
 
     <div class="row">
         <div class="col s12 m12 l8 offset-l2">
+            <a href="{{ path('propertie_add') }}">Ajouter une annonce</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m12 l8 offset-l2">
             <h3>Mes annonces ({{ app.user.properties|length }})</h3>
             <div>
                 {% if app.user.properties is not null %}
                     {% for propertie in app.user.properties %}
-                        <div class="col s10 m6 l4">
+                        <div class="col s10 m6 l6">
 			                <div class="card hoverable blue-grey darken-1">
 					            <div class="card-content white-text">
 						            <span class="card-title">{{ propertie.title }}</span>
