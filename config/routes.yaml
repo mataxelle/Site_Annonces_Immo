@@ -36,9 +36,9 @@ account_edit:
   requirements:
     id: '\d+'
 
-account_remove:
-  path: user/account_remove/{id}
-  controller: App\Controller\UserController::remove
+account_delete:
+  path: user/account_delete/{id}
+  controller: App\Controller\UserController::delete
   requirements:
     id: '\d+'
     

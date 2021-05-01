@@ -67,6 +67,8 @@ class SiteAnnoncesImmoController extends AbstractController
             $em->persist($propertie); // On confie notre entité à l'entity manager (on persist l'entité)
             $em->flush(); // On execute la requete
 
+            $this->addFlash('message', 'Nouvelle annonce ajouté avec succès');
+
             return $this->redirectToRoute('propertie_show', ['id' => $propertie->getId()]);
         }
 
@@ -123,7 +125,9 @@ class SiteAnnoncesImmoController extends AbstractController
             $em->persist($propertie);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            $this->addFlash('message', 'Annonce modifié avec succès');
+
+            return $this->redirectToRoute('propertie_show', ['id' => $propertie->getId()]);
         }
 
         return $this->render('site_annonces_immo/propertie_edit.html.twig', [
@@ -132,10 +136,17 @@ class SiteAnnoncesImmoController extends AbstractController
         ]);
     }
 
-    public function remove(): Response
+    public function delete(Propertie $propertie): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
-        return $this->render('site_annonces_immo/propertie_add.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($propertie);
+        $em->flush();
+
+        $this->addFlash('message', 'Annonce supprimé avec succès');
+
+        return $this->redirectToRoute('home');
+
     }
 }

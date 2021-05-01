@@ -38,6 +38,8 @@ class UserController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
+            $this->addFlash('message', 'Votre compte à été modifié avec succès');
+
             return $this->redirectToRoute('account', ['id' => $user->getId()]);
         }
 
@@ -47,9 +49,20 @@ class UserController extends AbstractController
         ]);
     }
 
-    public function remove(User $user): Response
+    public function delete(User $user): Response
     {
-        return $this->render('user/index.html.twig', [
+        if ($user) {
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+
+            $this->addFlash('message', 'Votre compte à été supprimer avec succès');
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('user/account_delete.html.twig', [
             'user' => $user,
         ]);
     }

@@ -4,6 +4,15 @@
 
 {% block body %}
 	<div class="container">
+	    <div class="row">
+	        <div class="col s12">
+			    {% for message in app.flashes('message') %}
+                    <div class="flash-message">
+                        <P>{{ message }}</p>
+                    </div>
+                {% endfor %}
+			</div>
+		</div>
 
 		<div class="row">
 			<div class="col s12 m12 l8 offset-l2">
@@ -26,7 +35,7 @@
 					{% if propertie in app.user.properties %}	{# {% if propertie in app.user.properties ne fonctionne plus %} #}
 					<div class="card-action propertie-card-action">
 						    <a class="btn" href="{{ path('propertie_edit', {'id' : propertie.id}) }}">Modifier</a>
-	                        <a class="btn">Supprimer</a>
+	                        <a class="btn" href="{{ path('propertie_delete', {'id' : propertie.id}) }}">Supprimer</a>
 					</div>
 					{% endif %}
 					{% endif %}
