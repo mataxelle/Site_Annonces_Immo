@@ -11,19 +11,13 @@
             <link rel="stylesheet" href="{{ asset('./assets/css/form.css') }}">
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
-
-        {% block javascripts %}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-		    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
     </head>
     <body>
         <nav>
 	        <div class="nav-wrapper #00bcd4 cyan">
 	    	    <div class="container">
 	    		    <a href="{{ path('home') }}" class="brand-logo">SiteAnnoncesImmo</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 			      	<ul id="nav-mobile" class="right hide-on-med-and-down">
 			            <li><a href="{{ path('home') }}">Accueil</a></li>
                         {% if is_granted('ROLE_ADMIN') %}
@@ -44,6 +38,36 @@
 	        </div>
   	    </nav>
 
+        <ul class="sidenav">
+			            <li><a href="{{ path('home') }}">Accueil</a></li>
+                        {% if is_granted('ROLE_ADMIN') %}
+							<li><a href="/admin">Admin</a></li>
+						{% endif %}
+                        {% if app.user %}
+						    <li><a href="{{ path('account', {'id': app.user.id}) }}">Mon compte</a></li>
+					    {% else %}
+						    <li><a href="/login">Mon compte</a></li>
+			            {% endif %}
+                        {% if app.user %}
+						    <li><a href="/logout">Déconnexion</a></li>
+					    {% else %}
+						    <li><a href="/login">Connexion</a></li>
+			            {% endif %}
+		      	    </ul>  
+
         {% block body %}{% endblock %}
+
+        {% block javascripts %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+            <script>
+                $(document).ready(function(){
+                    $('.sidenav').sidenav();
+                });
+            </script>
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
     </body>
 </html>
