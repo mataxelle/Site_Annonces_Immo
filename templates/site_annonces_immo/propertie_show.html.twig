@@ -23,12 +23,14 @@
 				        <img src="{{ asset('uploads/' ~ propertie.image) }}" alt="{{ propertie.title }}" class="responsive-img" />
 					</div>
 					<div class="card-content">
-					    <p class="bold">Prix :</p><br>
-						<p>{{ propertie.price }}€</p><br>
+					    <p class="bold">Prix :
+						    <span>{{ propertie.price }}€</span>
+					    </p><br>
 						<p class="bold">Description :</p><br>
 						<p>{{ propertie.description }}</p><br>
-						<p class="bold">Auteur :</p><br>
-						<p>{{ propertie.author }}</p><br>
+						<p class="bold">Propriétaire :
+						    <span>{{ propertie.users.lastName }}</sapn>
+						</p>
 					</div>
 
 					{% if is_granted('ROLE_USER') %}

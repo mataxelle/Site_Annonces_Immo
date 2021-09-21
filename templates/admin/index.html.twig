@@ -8,8 +8,10 @@
 
     <div class="row">
         <div class="col s12">
-            <h5>Annonces</h5>
-            <table>
+            <h5>Annonces
+                <span>({{ properties|length }})</sapn>
+            </h5>
+            <table class="centered striped">
                 <tr>
                     <th>#</th>
                     <th>Titre</th>
@@ -26,8 +28,8 @@
                         <td>{{ i }}</td>
                         <td><a href="{{ path('propertie_show', {'id': propertie.id}) }}" target="_blank">{{ propertie.title }}</a></td>
                         <td>{{ propertie.price }}</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
+                        <td>{{ propertie.users.lastName }}</td>
+                        <td>{{ propertie.users.phoneNumber }}</td>
                         <td>{{ propertie.createdAt ? propertie.createdAt|date('d/m/Y') : '-' }}</td>
                         <td>{{ propertie.updatedAt|date('d/m/Y') }}</td>
                         <td>
@@ -42,8 +44,10 @@
     </div>
     <div class="row">
         <div class="col s12">
-            <h5>Utilisateurs</h5>
-            <table>
+            <h5>Utilisateurs
+                <span>({{ users|length }})</sapn>
+            </h5>
+            <table class="centered striped">
                 <tr>
                     <th>#</th>
                     <th>Nom</th>
@@ -71,7 +75,7 @@
                         {% endif %}
                         <td>{{ user.email }}</td>
                         <td>{{ user.phoneNumber }}</td>
-                        <td>{#{ user.inscription_date|date('d/m/Y') }#}</td>
+                        <td>{{ user.inscriptionDate|date('d/m/Y') }}</td>
                         <td>
                         N/A
                             <a href=""><i class="material-icons blue-text">edit</i></a>
