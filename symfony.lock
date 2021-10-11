@@ -35,7 +35,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "2.3",
-            "ref": "9777bf185961283a450b6237281132935025fe04"
+            "ref": "4f5eb542f01475cc2eb49624e2f1a3ea458e73bf"
         },
         "files": [
             "./config/packages/doctrine.yaml",
@@ -46,12 +46,12 @@
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
-        "version": "2.2",
+        "version": "3.1",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "2.2",
-            "ref": "baaa439e3e3179e69e3da84b671f0a3e4a2f56ad"
+            "version": "3.1",
+            "ref": "ee609429c9ee23e22d6fa5728211768f51ed2818"
         },
         "files": [
             "./config/packages/doctrine_migrations.yaml",
@@ -187,7 +187,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "4.1",
-            "ref": "f8863cbad2f2e58c4b65fa1eac892ab189971bea"
+            "ref": "0ce7a032d344fb7b661cd25d31914cd703ad445b"
         },
         "files": [
             "./config/packages/dev/debug.yaml"
@@ -250,7 +250,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "5.2",
-            "ref": "6ec87563dcc85cd0c48856dcfbfc29610506d250"
+            "ref": "7eb218d19263e5e4a0f9d1d1502d8656098ec857"
         },
         "files": [
             "./config/packages/cache.yaml",
@@ -345,7 +345,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "5.1",
-            "ref": "bf16921ef8309a81d9f046e9b6369c46bcbd031f"
+            "ref": "f42c00dd9758feeafde5dfad515117753599f8f2"
         },
         "files": [
             "./.env.test",
@@ -396,7 +396,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "5.1",
-            "ref": "b4f3e7c95e38b606eef467e8a42a8408fc460c43"
+            "ref": "8c5b5f86ec3e4547cec9a3ae30c3b40ae51cab1f"
         },
         "files": [
             "./config/packages/prod/routing.yaml",
@@ -471,7 +471,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "5.0",
-            "ref": "fab9149bbaa4d5eca054ed93f9e1b66cc500895d"
+            "ref": "1766a292f47e3bf94bcfc192c2aa090588f9f46d"
         },
         "files": [
             "./config/packages/test/twig.yaml",
@@ -488,7 +488,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "4.3",
-            "ref": "d902da3e4952f18d3bf05aab29512eb61cabd869"
+            "ref": "3eb8df139ec05414489d55b97603c5f6ca0c44cb"
         },
         "files": [
             "./config/packages/test/validator.yaml",
