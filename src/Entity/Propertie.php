@@ -66,7 +66,7 @@ class Propertie
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $superficie;
+    private $surface;
 
     public function getId(): ?int
     {
@@ -169,14 +169,14 @@ class Propertie
         return $this;
     }
 
-    public function getSuperficie(): ?string
+    public function getSurface(): ?string
     {
-        return $this->superficie;
+        return $this->surface;
     }
 
-    public function setSuperficie(?string $superficie): self
+    public function setSurface(?string $surface): self
     {
-        $this->superficie = $superficie;
+        $this->surface = $surface;
 
         return $this;
     }

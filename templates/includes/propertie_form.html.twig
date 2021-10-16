@@ -14,6 +14,12 @@
 	</div>
 
 	<div class="input-field col s12 m8 l8 offset-l2">
+	    {{ form_label(form.surface, 'Superficie') }}
+	    {{ form_widget(form.surface) }}
+		<span class="error">{{ form_errors(form.surface) }}</span>
+	</div>
+
+	<div class="input-field col s12 m8 l8 offset-l2">
 	    {{ form_label(form.description, 'Description du bien') }}
 	    {{ form_widget(form.description, {'attr': {'class': 'materialize-textarea'}}) }}
 		<span class="error">{{ form_errors(form.description) }}</span>
@@ -21,11 +27,6 @@
 
 	<div class="input-field col s12 m8 l8 offset-l2">
 	    {{ form_widget(form.image) }}
-	</div>
-
-	<div class="input-field col s12 m8 l8 offset-l2">
-	    {{ form_label(form.author, 'Auteur') }}
-	    {{ form_widget(form.author) }}
 	</div>
 
 	<div class="input-field col s12 m8 l8 offset-l2">
