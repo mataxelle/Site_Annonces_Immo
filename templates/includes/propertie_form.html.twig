@@ -30,6 +30,11 @@
 	</div>
 
 	<div class="input-field col s12 m8 l8 offset-l2">
+	    {{ form_label(form.author, 'Auteur') }}
+	    {{ form_widget(form.author) }}
+	</div>
+
+	<div class="input-field col s12 m8 l8 offset-l2">
 	    <input type="submit" name="" value="Publier" class="btn btn-primary btn-large">
 	</div>
 {{ form_end(form) }}

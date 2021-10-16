@@ -46,10 +46,10 @@
 		</div>	
 
 		<div class="row">
-		    <div class="col s12">
+		    <div class="col s12 m12 l8 offset-l2">
 			    <div class="card mx-5">
 				    <div class="card-header">
-					    <h5>Contact</h5>
+					    <h5 class="card-title #00bcd4 cyan-text bold">Contact</h5>
 				    </div>
 					<div class="card-content">
 			            {% if app.user %}
@@ -57,7 +57,9 @@
 					            <span class="bold">{{ propertie.users.phoneNumber }}</span>
 					        </p>
 				        {% else %}
-					        <a href="/login"> Veuillez vous connecter pour voir le contact de cette annonce</a>
+						    <p class="center">
+					            <a href="/login"> Veuillez vous connecter pour voir le contact de cette annonce</a>
+							</p>
 				        {% endif %}
 					</div>
 				</div>
