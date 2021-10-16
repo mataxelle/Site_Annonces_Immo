@@ -63,6 +63,11 @@ class Propertie
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $superficie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -160,6 +165,18 @@ class Propertie
     public function setUsers(?User $users): self
     {
         $this->users = $users;
+
+        return $this;
+    }
+
+    public function getSuperficie(): ?string
+    {
+        return $this->superficie;
+    }
+
+    public function setSuperficie(?string $superficie): self
+    {
+        $this->superficie = $superficie;
 
         return $this;
     }
