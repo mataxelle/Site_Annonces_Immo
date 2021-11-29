@@ -5,7 +5,15 @@
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
-/vendor/
+/vendor/*
+!vendor/symfony
+vendor/symfony/*
+!vendor/symfony/doctrine-bridge
+vendor/symfony/doctrine-bridge/*
+!vendor/symfony/doctrine-bridge/PropertyInfo
+vendor/symfony/doctrine-bridge/PropertyInfo/*
+!vendor/symfony/doctrine-bridge/PropertyInfo/DoctrineExtractor.php
+
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
